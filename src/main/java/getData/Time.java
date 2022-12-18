@@ -24,8 +24,8 @@ public class Time {
 	public String toString(){
 		if(isNull)
 			return "null";
-//		return year.toString() + "-" + month + "-" + day + "T" + hour + ":" + minute + ":" + second + "Z";
 		return time;
+//		return year.toString() + "-" + month + "-" + day + "T" + hour + ":" + minute + ":" + second + "Z";
 	}
 	
 }

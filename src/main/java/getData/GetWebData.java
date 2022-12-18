@@ -168,6 +168,7 @@ public class GetWebData {
 		Repo repo = new Repo(repoName);
 		repo.setIssues(getIssues(owner, repoName));
 		repo.setDevelopers(getDevelopers(owner, repoName));
+		repo.setReleaseAndCommits(getReleaseAndCommit(owner, repoName));
 		return repo;
 	}
 	
@@ -176,7 +177,7 @@ public class GetWebData {
 //		testTime();
 //		testIssues();
 //		testDeveloper();
-		testReleaseAndCommit();
+//		testReleaseAndCommit();
 	}
 }
 
