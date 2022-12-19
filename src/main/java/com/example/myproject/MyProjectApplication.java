@@ -1,14 +1,9 @@
 package com.example.myproject;
 
-import DataProcess.GetWebData;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Scanner;
-
-import static DataProcess.StoreData.getInput;
-import static DataProcess.StoreData.storeData;
-import static com.example.myproject.DataProcesser.dataProcess;
+import static com.example.myproject.DataProcessor.dataProcess;
 
 @SpringBootApplication
 public class MyProjectApplication {
@@ -16,5 +11,4 @@ public class MyProjectApplication {
 		dataProcess();
 		SpringApplication.run(MyProjectApplication.class, args);
 	}
-	
 }

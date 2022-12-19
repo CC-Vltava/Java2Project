@@ -1,17 +1,14 @@
 package test;
 
-import com.example.myproject.DataProcesser;
+import com.example.myproject.DataProcessor;
 import com.google.gson.Gson;
 import DataProcess.*;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 
 
 import static DataProcess.GetWebData.*;
-import static DataProcess.StoreData.storeData;
-import static com.example.myproject.DataProcesser.dataProcess;
+import static com.example.myproject.DataProcessor.dataProcess;
 
 public class TestMode {
 	public static void testRepoName() {
@@ -61,13 +58,11 @@ public class TestMode {
 	
 	public static void testDataProcesser(){
 		dataProcess();
-		System.out.println(DataProcesser.repo);
+		System.out.println(DataProcessor.repo);
 	}
 	
 	public static void main(String[] args) {
 		testDataProcesser();
 	}
-	
-	
 	
 }

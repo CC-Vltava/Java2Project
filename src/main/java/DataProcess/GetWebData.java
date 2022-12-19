@@ -2,6 +2,7 @@ package DataProcess;
 
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.internal.LinkedTreeMap;
 
 import java.io.IOException;
@@ -69,7 +70,10 @@ public class GetWebData {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Gson gson = new Gson();
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
 		List list = gson.fromJson(information, List.class);
 		for(Object s : list){
 			if(s instanceof LinkedTreeMap<?,?>)
@@ -92,7 +96,10 @@ public class GetWebData {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Gson gson = new Gson();
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
 		List list = gson.fromJson(information, List.class);
 		for(Object s : list){
 			if(s instanceof LinkedTreeMap<?,?>)
@@ -115,7 +122,10 @@ public class GetWebData {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Gson gson = new Gson();
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
 		List list = gson.fromJson(information, List.class);
 		for(Object s : list){
 			if(s instanceof LinkedTreeMap<?,?>)

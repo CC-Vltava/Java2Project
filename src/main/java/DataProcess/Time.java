@@ -25,7 +25,5 @@ public class Time {
 		if(isNull)
 			return "null";
 		return time;
-//		return year.toString() + "-" + month + "-" + day + "T" + hour + ":" + minute + ":" + second + "Z";
 	}
-	
 }
