@@ -1,4 +1,4 @@
-package getData;
+package DataProcess;
 
 
 import com.google.gson.Gson;
@@ -9,8 +9,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
-
-import static getData.TestMode.*;
 
 
 public class GetWebData {
@@ -164,7 +162,7 @@ public class GetWebData {
 		return list;
 	}
 	
-	public Repo getRepoInformation(String owner, String repoName){
+	public static Repo getRepoInformation(String owner, String repoName){
 		Repo repo = new Repo(repoName);
 		repo.setIssues(getIssues(owner, repoName));
 		repo.setDevelopers(getDevelopers(owner, repoName));
@@ -178,6 +176,7 @@ public class GetWebData {
 //		testIssues();
 //		testDeveloper();
 //		testReleaseAndCommit();
+//		testRepo2Json();
 	}
 }
 

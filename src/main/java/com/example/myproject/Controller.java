@@ -9,5 +9,9 @@ public class Controller {
 	public String test(){
 		return "TEST";
 	}
-	
+	@GetMapping("/get-issues")
+	public String getIssues(){
+		
+		return "";
+	}
 }

@@ -1,7 +1,10 @@
-package getData;
+package DataProcess;
+
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class Repo {
 	String name;
 	List<Developer> developers;

@@ -1,10 +1,10 @@
-package getData;
+package DataProcess;
 
 public class Time {
 	boolean isNull;
 	Integer year, month, day, hour, minute, second;
 	String time;
-	Time(String s){
+	public Time(String s){
 		if(s == null){
 			isNull = true;
 		}

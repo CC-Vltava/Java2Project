@@ -1,4 +1,4 @@
-package getData;
+package DataProcess;
 
 import lombok.AllArgsConstructor;
 @AllArgsConstructor
