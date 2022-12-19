@@ -19,4 +19,10 @@ public class ReleaseAndCommit {
 	public String toString(){
 		return (type == 1 ? "release" : "commit") + " " + time;
 	}
+	
+	public boolean getIsWeekDay(){
+		int day = time.getDay();
+		return day <= 5 && day >= 1;
+	}
+	
 }
