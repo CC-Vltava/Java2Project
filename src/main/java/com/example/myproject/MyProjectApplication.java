@@ -8,7 +8,7 @@ import static com.example.myproject.DataProcessor.dataProcess;
 @SpringBootApplication
 public class MyProjectApplication {
 	public static void main(String[] args) {
-		dataProcess();
+//		dataProcess();
 		SpringApplication.run(MyProjectApplication.class, args);
 	}
 }

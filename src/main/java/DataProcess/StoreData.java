@@ -15,8 +15,21 @@ import static DataProcess.GetWebData.getRepoName;
 public class StoreData {
 	static String owner, repoName;
 	
+	public static void setOwner(String owner) {
+		StoreData.owner = owner;
+	}
+	
+	public static void setRepoName(String repoName) {
+		StoreData.repoName = repoName;
+	}
+	
 	public static void storeData() {
 		getInput();
+		makeDir();
+		storeRepo();
+	}
+	
+	public static void storeData1() {
 		makeDir();
 		storeRepo();
 	}

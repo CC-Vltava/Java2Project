@@ -11,6 +11,14 @@ import java.io.IOException;
 public class ReadData {
 	static String owner, repoName;
 	
+	public static void setOwner(String owner) {
+		ReadData.owner = owner;
+	}
+	
+	public static void setRepoName(String repoName) {
+		ReadData.repoName = repoName;
+	}
+	
 	public static Repo readData() {
 		String input = getData();
 		Gson gson = new GsonBuilder()
