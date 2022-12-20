@@ -3,10 +3,11 @@ package DataProcess;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
 import java.util.Scanner;
 
 import static DataProcess.GetWebData.getRepoInformation;
