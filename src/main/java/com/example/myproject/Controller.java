@@ -7,7 +7,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.springframework.web.bind.annotation.*;
 
-import static DataProcess.GetWebData.getRepoName;
 import static com.example.myproject.DataProcessor.dataProcess1;
 
 @CrossOrigin(origins = {"*", "null"})
@@ -44,17 +43,32 @@ public class Controller {
 				.create();
 		return gson.toJson(repo.getReleaseAndCommits());
 	}
-	@PostMapping("/post-owner")
-	public String getOwner(@RequestBody String owner){
+//	@PostMapping("/post-owner")
+//	public String getOwner(@RequestBody String owner){
+//		System.out.println(owner);
+//		StoreData.setOwner(owner);
+//		ReadData.setOwner(owner);
+//		return getRepoName(owner).toString();
+//	}
+//	@PostMapping("/post-reponame")
+//	public String getRepo(@RequestBody String repoName){
+//		System.out.println(repoName.);
+//		StoreData.setRepoName(repoName);
+//		ReadData.setRepoName(repoName);
+//		dataProcess1();
+//		return "Get Repo Name!";
+//	}
+	@PostMapping("/post")
+	public String getRequest(@RequestBody queryForm queryForm) {
+		String owner = queryForm.getOwner();
+		String repoName = queryForm.getRepoName();
+		System.out.println(owner);
 		StoreData.setOwner(owner);
 		ReadData.setOwner(owner);
-		return getRepoName(owner).toString();
-	}
-	@PostMapping("/post-reponame")
-	public String getRepo(@RequestBody String repoName){
+		System.out.println(repoName);
 		StoreData.setRepoName(repoName);
 		ReadData.setRepoName(repoName);
 		dataProcess1();
-		return "Get Repo Name!";
+		return "Get Repo";
 	}
 }
