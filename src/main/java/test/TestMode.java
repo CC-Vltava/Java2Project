@@ -3,6 +3,7 @@ package test;
 import com.example.myproject.DataProcessor;
 import com.google.gson.Gson;
 import DataProcess.*;
+import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
@@ -50,7 +51,10 @@ public class TestMode {
 	
 	public static void testRepo2Json() {
 		Repo repo = getRepoInformation("CC-Vltava", "123");
-		Gson gson = new Gson();
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
 		String output = gson.toJson(repo);
 		Repo test = gson.fromJson(output, Repo.class);
 		System.out.println(test);
@@ -61,8 +65,31 @@ public class TestMode {
 		System.out.println(DataProcessor.repo);
 	}
 	
+	public static void testRepoOutput(){
+		Repo repo = getRepoInformation("CC-Vltava", "123");
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
+		String output = gson.toJson(repo);
+		System.out.println(output);
+	}
+	
+	public static void testIssueOutput(){
+		Issue issue = new Issue(false, new Time("2022-12-18T11:49:57Z"), new Time("2025-12-18T11:49:57Z"));
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
+		String output = gson.toJson(issue);
+		System.out.println(output);
+	}
+	
 	public static void main(String[] args) {
-		testDataProcesser();
+//		testDataProcesser();
+//		testTimeOutput();
+//		testIssueOutput();
+		testRepoOutput();
 	}
 	
 }
