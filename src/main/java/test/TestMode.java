@@ -89,7 +89,18 @@ public class TestMode {
 //		testDataProcesser();
 //		testTimeOutput();
 //		testIssueOutput();
-		testRepoOutput();
+//		testRepoOutput();
+		testTIME();
+	}
+	
+	private static void testTIME() {
+		Repo repo = getRepoInformation("NekoX-Dev", "NekoX");
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
+		String output = gson.toJson(repo.getWWME());
+		System.out.println(output);
 	}
 	
 }

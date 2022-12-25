@@ -1,7 +1,9 @@
 package DataProcess;
 
 import lombok.Data;
+import org.springframework.data.relational.core.sql.In;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -45,5 +47,18 @@ public class Repo {
 	
 	public void setReleaseAndCommits(List<ReleaseAndCommit> releaseAndCommits) {
 		this.releaseAndCommits = releaseAndCommits;
+	}
+	
+	public List<Integer> getWWME(){
+		List<Integer> list = new ArrayList<>();
+		int weekday;
+		int morning;
+		weekday = (int) releaseAndCommits.stream().filter(x -> x.isWeekDay.equals("Weekday")).count();
+		morning = (int) releaseAndCommits.stream().filter(x -> x.isMorining.equals("Morning")).count();
+		list.add(weekday);
+		list.add(releaseAndCommits.size() - weekday);
+		list.add(morning);
+		list.add(releaseAndCommits.size() - morning);
+		return list;
 	}
 }
