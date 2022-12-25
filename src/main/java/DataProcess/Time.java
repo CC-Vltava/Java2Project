@@ -49,4 +49,7 @@ public class Time {
 		return (val % 7 + 7) % 7;
 	}
 	
+	public int getMonth() {
+		return month;
+	}
 }

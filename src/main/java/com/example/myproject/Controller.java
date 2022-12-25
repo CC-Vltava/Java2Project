@@ -4,6 +4,7 @@ import DataProcess.ReadData;
 import DataProcess.Repo;
 import DataProcess.StoreData;
 import ResponseData.WebDeveloper;
+import ResponseData.WebRelease;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.springframework.web.bind.annotation.*;
@@ -75,7 +76,8 @@ public class Controller {
 			name.add(x.getName());
 			times.add(x.getNumberOfCommit());
 		});
-		return "\"totalDevelopers\":" + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' + gson.toJson(name) + '\n' + gson.toJson(times);
+		return("\"totalDevelopers\": " + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' +
+				"\"names\": " + gson.toJson(name) + '\n' + "\"times\": " + gson.toJson(times));
 	}
 	
 	@GetMapping("/get-Web-Issue")
@@ -88,15 +90,34 @@ public class Controller {
 		return gson.toJson(repo.getWebIssue());
 	}
 
-//	@GetMapping("/get-Web-Release")
-//	public String getWebRelease() {
-//		Repo repo = DataProcessor.repo;
-//		Gson gson = new GsonBuilder()
-//				.setPrettyPrinting()
-//				.serializeNulls()
-//				.create();
-//		return gson.toJson(repo.getWebRelease());
-//	}
+	@GetMapping("/get-Web-Release")
+	public String getWebRelease() {
+		Repo repo = DataProcessor.repo;
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
+		WebRelease webRelease = new WebRelease(repo.getReleaseAndCommits());
+		List <Integer> list = new ArrayList<>();
+		for(int i = 0; i < 12; i++)
+			list.add(webRelease.getMonth()[i]);
+		List <String> months = new ArrayList<>();
+		months.add("Jan");
+		months.add("Feb");
+		months.add("Mar");
+		months.add("Apr");
+		months.add("May");
+		months.add("Jun");
+		months.add("Jul");
+		months.add("Aug");
+		months.add("Sept");
+		months.add("Oct");
+		months.add("Nov");
+		months.add("Dec");
+		
+		return ("\"totalRelease\": " + webRelease.getRelease() + '\n'
+				+ "\"times\": " + gson.toJson(list) + '\n' + "\"months\": " + gson.toJson(months));
+	}
 	
 	@PostMapping("/post")
 	public String getRequest(@RequestBody queryForm queryForm) {

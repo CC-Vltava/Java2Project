@@ -1,6 +1,7 @@
 package test;
 
 import ResponseData.WebDeveloper;
+import ResponseData.WebRelease;
 import com.example.myproject.Controller;
 import com.example.myproject.DataProcessor;
 import com.google.gson.Gson;
@@ -111,7 +112,31 @@ public class TestMode {
 			name.add(x.getName());
 			times.add(x.getNumberOfCommit());
 		});
-		System.out.println("\"totalDevelopers\":" + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' + gson.toJson(name) + '\n' + gson.toJson(times));
+		System.out.println("\"totalDevelopers\": " + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' +
+				"\"names\": " + gson.toJson(name) + '\n' + "\"times\": " + gson.toJson(times));
+		
+		System.out.println(gson.toJson(repo.getWebIssue()));
+		
+		WebRelease webRelease = new WebRelease(repo.getReleaseAndCommits());
+		List <Integer> list = new ArrayList<>();
+		for(int i = 0; i < 12; i++)
+			list.add(webRelease.getMonth()[i]);
+		List <String> months = new ArrayList<>();
+		months.add("Jan");
+		months.add("Feb");
+		months.add("Mar");
+		months.add("Apr");
+		months.add("May");
+		months.add("Jun");
+		months.add("Jul");
+		months.add("Aug");
+		months.add("Sept");
+		months.add("Oct");
+		months.add("Nov");
+		months.add("Dec");
+		
+		System.out.println("\"totalRelease\": " + webRelease.getRelease() + '\n'
+				+ "\"times\": " + gson.toJson(list) + '\n' + "\"months\": " + gson.toJson(months));
 		
 	}
 	

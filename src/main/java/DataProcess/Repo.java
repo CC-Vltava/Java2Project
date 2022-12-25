@@ -110,7 +110,12 @@ public class Repo {
 		return webIssue;
 	}
 	
-	
+	public WebRelease getWebRelease() {
+		Repo repo = DataProcessor.repo;
+		return new WebRelease(repo.getReleaseAndCommits());
+	}
+
+
 //	public WebRelease getWebRelease() {
 //
 //	}
