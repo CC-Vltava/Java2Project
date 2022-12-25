@@ -19,6 +19,15 @@ public class Time {
 			second = Integer.parseInt(s.substring(17, 19));
 		}
 	}
+	public Time(int year, int month, int day){
+		this.year = year;
+		this.month = month;
+		this.day = day;
+	}
+	
+	public int getTheDay(){
+		return day;
+	}
 	
 	@Override
 	public String toString() {

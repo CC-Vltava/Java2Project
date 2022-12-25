@@ -57,21 +57,36 @@ public class Controller {
 		return gson.toJson(repo.getWWME());
 	}
 	
-	//	@PostMapping("/post-owner")
-//	public String getOwner(@RequestBody String owner){
-//		System.out.println(owner);
-//		StoreData.setOwner(owner);
-//		ReadData.setOwner(owner);
-//		return getRepoName(owner).toString();
+	@GetMapping("/get-Web-Developer")
+	public String getWebDeveloper() {
+		Repo repo = DataProcessor.repo;
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
+		return gson.toJson(repo.getWebDeveloper());
+	}
+	
+	@GetMapping("/get-Web-Issue")
+	public String getWebIssue() {
+		Repo repo = DataProcessor.repo;
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
+		return gson.toJson(repo.getWebIssue());
+	}
+	
+//	@GetMapping("/get-Web-Release")
+//	public String getWebRelease() {
+//		Repo repo = DataProcessor.repo;
+//		Gson gson = new GsonBuilder()
+//				.setPrettyPrinting()
+//				.serializeNulls()
+//				.create();
+//		return gson.toJson(repo.getWebRelease());
 //	}
-//	@PostMapping("/post-reponame")
-//	public String getRepo(@RequestBody String repoName){
-//		System.out.println(repoName.);
-//		StoreData.setRepoName(repoName);
-//		ReadData.setRepoName(repoName);
-//		dataProcess1();
-//		return "Get Repo Name!";
-//	}
+	
 	@PostMapping("/post")
 	public String getRequest(@RequestBody queryForm queryForm) {
 		String owner = queryForm.getOwner();

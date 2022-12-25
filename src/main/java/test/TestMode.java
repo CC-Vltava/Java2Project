@@ -90,7 +90,21 @@ public class TestMode {
 //		testTimeOutput();
 //		testIssueOutput();
 //		testRepoOutput();
-		testTIME();
+//		testTIME();
+		testWeb();
+	}
+	
+	private static void testWeb() {
+		Repo repo = getRepoInformation("NekoX-Dev", "NekoX");
+		DataProcessor.repo = repo;
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
+		String output = gson.toJson(repo.getWebDeveloper());
+		System.out.println(output);
+		output = gson.toJson(repo.getWebIssue());
+		System.out.println(output);
 	}
 	
 	private static void testTIME() {

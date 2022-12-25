@@ -24,7 +24,6 @@ public class Issue {
 		return ans;
 	}
 	
-	// 这个直接返回一个字符串了
 	public void getResolutionTime() {
 		if (isOpenIssue) {
 			resolutionTime = "This issue is open";
@@ -33,15 +32,38 @@ public class Issue {
 		int year = endTime.year - beginTime.year;
 		int month = endTime.month - beginTime.month;
 		int day = endTime.day - beginTime.day;
-		if (day < 0)
+		if (day < 0) {
 			month--;
-		if (month < 0)
+			day += 30;
+		}
+		if (month < 0) {
 			year--;
+			month += 12;
+		}
 		if (year != 0)
 			resolutionTime = "More than a year";
 		else if (month == 0)
 			resolutionTime = "Less than a month";
 		else
 			resolutionTime = "About " + month + " months";
+	}
+	
+	public Time getResolutionTime1() {
+		if (isOpenIssue) {
+			return null;
+		}
+		int year = endTime.year - beginTime.year;
+		int month = endTime.month - beginTime.month;
+		int day = endTime.day - beginTime.day;
+		if (day < 0) {
+			month--;
+			day += 30;
+		}
+		if (month < 0) {
+			year--;
+			month += 12;
+		}
+		Time time = new Time(year, month, day);
+		return time;
 	}
 }
