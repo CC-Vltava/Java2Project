@@ -1,10 +1,13 @@
 package test;
 
+import ResponseData.WebDeveloper;
+import com.example.myproject.Controller;
 import com.example.myproject.DataProcessor;
 import com.google.gson.Gson;
 import DataProcess.*;
 import com.google.gson.GsonBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -101,10 +104,15 @@ public class TestMode {
 				.setPrettyPrinting()
 				.serializeNulls()
 				.create();
-		String output = gson.toJson(repo.getWebDeveloper());
-		System.out.println(output);
-		output = gson.toJson(repo.getWebIssue());
-		System.out.println(output);
+		WebDeveloper webDeveloper = repo.getWebDeveloper();
+		List<String> name = new ArrayList<>();
+		List<Integer> times = new ArrayList<>();
+		webDeveloper.getDevelopers().forEach(x -> {
+			name.add(x.getName());
+			times.add(x.getNumberOfCommit());
+		});
+		System.out.println("totalDevelopers:" + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' + gson.toJson(name) + '\n' + gson.toJson(times));
+		
 	}
 	
 	private static void testTIME() {
