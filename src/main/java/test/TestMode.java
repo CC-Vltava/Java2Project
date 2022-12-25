@@ -111,7 +111,7 @@ public class TestMode {
 			name.add(x.getName());
 			times.add(x.getNumberOfCommit());
 		});
-		System.out.println("totalDevelopers:" + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' + gson.toJson(name) + '\n' + gson.toJson(times));
+		System.out.println("\"totalDevelopers\":" + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' + gson.toJson(name) + '\n' + gson.toJson(times));
 		
 	}
 	

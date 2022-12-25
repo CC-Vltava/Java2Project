@@ -75,7 +75,7 @@ public class Controller {
 			name.add(x.getName());
 			times.add(x.getNumberOfCommit());
 		});
-		return gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' + gson.toJson(name) + '\n' + gson.toJson(times);
+		return "\"totalDevelopers\":" + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' + gson.toJson(name) + '\n' + gson.toJson(times);
 	}
 	
 	@GetMapping("/get-Web-Issue")
