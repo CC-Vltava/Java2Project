@@ -79,8 +79,6 @@ public class Controller {
 		});
 		WebDev webDev = new WebDev(webDeveloper.getTotalDeveloper(), name, times);
 		return gson.toJson(webDev);
-//		return("\"totalDevelopers\": " + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' +
-//				"\"names\": " + gson.toJson(name) + '\n' + "\"times\": " + gson.toJson(times));
 	
 	}
 	
@@ -101,7 +99,8 @@ public class Controller {
 				.setPrettyPrinting()
 				.serializeNulls()
 				.create();
-		return (gson.toJson(repo.getReleaseAndCommits()));
+		WebRelease webRelease = new WebRelease(repo.getReleaseAndCommits());
+		return (gson.toJson(webRelease));
 	}
 	
 	@PostMapping("/post")
