@@ -8,12 +8,22 @@ public class ReleaseAndCommit {
 	Time time;
 	String pushTime;
 	boolean isWeekDay;
+	String release;
 	
 	public ReleaseAndCommit(int type, Time time){
 		this.type = type;
 		this.time = time;
 		pushTime = time.toString();
 		isWeekDay = getIsWeekDay();
+		release = get();
+	}
+	
+	public String get() {
+		if(time.hour >= 8 && time.hour <= 12)
+			return "Morning";
+		if(time.hour >= 12 && time.hour <= 18)
+			return "Afternoon";
+		return "Evening";
 	}
 	
 	public Time getTime() {

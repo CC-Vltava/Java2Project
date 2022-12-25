@@ -66,7 +66,7 @@ public class TestMode {
 	}
 	
 	public static void testRepoOutput(){
-		Repo repo = getRepoInformation("CC-Vltava", "123");
+		Repo repo = getRepoInformation("NekoX-Dev", "NekoX");
 		Gson gson = new GsonBuilder()
 				.setPrettyPrinting()
 				.serializeNulls()
