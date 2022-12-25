@@ -3,6 +3,7 @@ package com.example.myproject;
 import DataProcess.ReadData;
 import DataProcess.Repo;
 import DataProcess.StoreData;
+import ResponseData.WebDev;
 import ResponseData.WebDeveloper;
 import ResponseData.WebRelease;
 import com.google.gson.Gson;
@@ -76,8 +77,11 @@ public class Controller {
 			name.add(x.getName());
 			times.add(x.getNumberOfCommit());
 		});
-		return("\"totalDevelopers\": " + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' +
-				"\"names\": " + gson.toJson(name) + '\n' + "\"times\": " + gson.toJson(times));
+		WebDev webDev = new WebDev(webDeveloper.getTotalDeveloper(), name, times);
+		return gson.toJson(webDev);
+//		return("\"totalDevelopers\": " + gson.toJson(webDeveloper.getTotalDeveloper()) + '\n' +
+//				"\"names\": " + gson.toJson(name) + '\n' + "\"times\": " + gson.toJson(times));
+	
 	}
 	
 	@GetMapping("/get-Web-Issue")
@@ -97,26 +101,7 @@ public class Controller {
 				.setPrettyPrinting()
 				.serializeNulls()
 				.create();
-		WebRelease webRelease = new WebRelease(repo.getReleaseAndCommits());
-		List <Integer> list = new ArrayList<>();
-		for(int i = 0; i < 12; i++)
-			list.add(webRelease.getMonth()[i]);
-		List <String> months = new ArrayList<>();
-		months.add("Jan");
-		months.add("Feb");
-		months.add("Mar");
-		months.add("Apr");
-		months.add("May");
-		months.add("Jun");
-		months.add("Jul");
-		months.add("Aug");
-		months.add("Sept");
-		months.add("Oct");
-		months.add("Nov");
-		months.add("Dec");
-		
-		return ("\"totalRelease\": " + webRelease.getRelease() + '\n'
-				+ "\"times\": " + gson.toJson(list) + '\n' + "\"months\": " + gson.toJson(months));
+		return (gson.toJson(repo.getReleaseAndCommits()));
 	}
 	
 	@PostMapping("/post")
