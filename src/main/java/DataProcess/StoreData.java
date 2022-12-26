@@ -86,9 +86,6 @@ public class StoreData {
 			e.printStackTrace();
 		}
 		System.out.println("Finish!");
-		
-		getWord();
-		
 	}
 	
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static IssueWords.getWords.getWord;
 import static com.example.myproject.DataProcessor.dataProcess1;
 
 @CrossOrigin(origins = {"*", "null"})
@@ -106,6 +107,7 @@ public class Controller {
 	
 	@GetMapping("/get-Web-Word")
 	public String getWebWord() {
+		getWord();
 		Gson gson = new GsonBuilder()
 				.setPrettyPrinting()
 				.serializeNulls()
