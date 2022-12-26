@@ -32,8 +32,8 @@ public class getWords {
 	public static void getIssuesNames() {
 		owner = "CC-Vltava";
 		repoName = "Java2Project";
-		repoName = StoreData.repoName;
-		owner = StoreData.owner;
+//		repoName = StoreData.repoName;
+//		owner = StoreData.owner;
 		String targetURL = "https://api.github.com/repos/" + owner + "/" + repoName + "/issues?state=all";
 		String information = "";
 		try {

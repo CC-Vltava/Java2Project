@@ -35,7 +35,7 @@ public class totalWords {
 				list.add(x);
 			if (x.equals("your") || x.equals("you") || x.equals("would") || x.equals("is") || x.equals("are") || x.equals("the"))
 				list.add(x);
-			if (map.get(x) <= 5)
+			if (map.get(x) <= 1)
 				list.add(x);
 			if (x.equals("be") || x.equals("just") || x.equals("with") || x.equals("Please") || x.equals("when") || check(x))
 				list.add(x);

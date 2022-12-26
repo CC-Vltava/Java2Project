@@ -1,20 +1,22 @@
 package IssueWords;
 
 
+import lombok.AllArgsConstructor;
 import org.springframework.data.relational.core.sql.In;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+@AllArgsConstructor
+class Word{
+	public String name;
+	public int value;
+}
 public class passWords {
-	List<String> words = new ArrayList<>();
-	List<Integer> number = new ArrayList<>();
+	List<Word> list = new ArrayList<>();
 	public passWords(){
-		Map<String, Integer> map = totalWords.getMap();
-		map.forEach((word, num) -> {
-			words.add(word);
-			number.add(num);
+		totalWords.getMap().forEach((name, value) -> {
+			list.add(new Word(name, value));
 		});
 	}
 }
