@@ -24,6 +24,7 @@ public class getWords {
 	
 	// 调用这个东西就可以获得所有的word
 	public static void getWord(){
+		names.clear();
 		getIssuesNames();
 		traverse();
 		clearMap();
