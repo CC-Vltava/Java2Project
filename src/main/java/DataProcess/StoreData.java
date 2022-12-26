@@ -12,9 +12,10 @@ import java.util.Scanner;
 
 import static DataProcess.GetWebData.getRepoInformation;
 import static DataProcess.GetWebData.getRepoName;
+import static IssueWords.getWords.getWord;
 
 public class StoreData {
-	static String owner, repoName;
+	public static String owner, repoName;
 	
 	public static void setOwner(String owner) {
 		StoreData.owner = owner;
@@ -85,6 +86,9 @@ public class StoreData {
 			e.printStackTrace();
 		}
 		System.out.println("Finish!");
+		
+		getWord();
+		
 	}
 	
 }

@@ -3,6 +3,7 @@ package com.example.myproject;
 import DataProcess.ReadData;
 import DataProcess.Repo;
 import DataProcess.StoreData;
+import IssueWords.passWords;
 import ResponseData.WebDev;
 import ResponseData.WebDeveloper;
 import ResponseData.WebRelease;
@@ -101,6 +102,15 @@ public class Controller {
 				.create();
 		WebRelease webRelease = new WebRelease(repo.getReleaseAndCommits());
 		return (gson.toJson(webRelease));
+	}
+	
+	@GetMapping("/get-Web-Word")
+	public String getWebWord() {
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.serializeNulls()
+				.create();
+		return (gson.toJson(new passWords()));
 	}
 	
 	@PostMapping("/post")

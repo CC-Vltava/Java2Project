@@ -19,6 +19,9 @@ public class testURL {
 		
 		URL url = new URL(s + "?tab=repositories");
 		System.out.println("We are going to " + name + "'s repo!");
+		
+		
+		url = new URL("https://github.com/CC-Vltava/Java2Project/issues/4");
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		connection.setRequestMethod("GET");
 		connection.connect();
@@ -36,8 +39,10 @@ public class testURL {
 			information.append(newString);
 //			System.out.println(newString);
 		}
+		System.out.println(information);
 		
-		
+		// <meta name="description" content=+description
+		// <p dir="auto">+comment
 		
 	}
 }
